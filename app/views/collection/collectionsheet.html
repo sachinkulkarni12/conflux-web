@@ -113,8 +113,8 @@
 	                </tr>
 	                <tr ng-repeat="client in group.clients">
 						<td>
-						<div class="table-cell-scrollable">
-							({{client.clientId}}) {{client.clientName}}
+						<div class="table-cell-scrollable" ng-repeat="loan in client.loans">
+							({{loan.loanId}}) <span ng-show="$last">{{client.clientName}}</span>
 						</div>
 					</td>
 	                </tr>
