@@ -6,6 +6,8 @@
             scope.newEle = undefined;
             scope.codevalueerror = false;
             scope.newEle = {};
+            scope.newEle.isActive = true;
+            scope.isHiddenActiveCheckBox = true;
 
             resourceFactory.codeResources.get({codeId: routeParams.id}, function (data) {
                 scope.code = data;
@@ -16,6 +18,10 @@
                 scope.codevalues = data;
 
             });
+
+            if(scope.response != undefined){
+                scope.isHiddenActiveCheckBox = scope.response.uiDisplayConfigurations.createCodeValue.isHiddenField.active;
+            }
 
             scope.addCv = function () {
                 if (scope.newEle != undefined && scope.newEle.hasOwnProperty('name')) {

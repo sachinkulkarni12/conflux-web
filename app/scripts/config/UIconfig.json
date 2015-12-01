@@ -52,6 +52,11 @@
 		"isAutoPopulate":{
 		  "active":true
 		}
+	},
+	"createCodeValue":{
+		"isHiddenField":{
+		  "active":false
+		}
 	}
   }
 }

@@ -5,6 +5,7 @@
             scope.formData = [];
             scope.newcode = {};
             scope.codename = {};
+            scope.isHiddenActiveCheckBox = true;
             resourceFactory.codeResources.get({codeId: routeParams.id}, function (data) {
                 scope.code = data;
                 scope.codename.name = data.name;
@@ -13,17 +14,22 @@
                 scope.codevalues = data;
             });
 
+            if(scope.response != undefined){
+                scope.isHiddenActiveCheckBox = scope.response.uiDisplayConfigurations.createCodeValue.isHiddenField.active;
+            }
+
             scope.delCode = function () {
                 $modal.open({
                     templateUrl: 'deletecode.html',
                     controller: CodeDeleteCtrl
                 });
             };
-            scope.showEdit = function (id, name, description,position, cv) {
+            scope.showEdit = function (id, name, description,position, cv, isActive) {
                 scope.formData[id] = {
                     name: name,
                     description:description,
-                    position: position
+                    position: position,
+                    isActive: isActive
                 }
                 cv.edit = !cv.edit;
             };
