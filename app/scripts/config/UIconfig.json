@@ -1,5 +1,5 @@
 {
-  "enableUIDisplayConfiguration": false,
+  "enableUIDisplayConfiguration": true,
   "uiDisplayConfigurations": {
 	"loanAccount": {
 	  "isHiddenField": {
@@ -37,6 +37,9 @@
 	"collectionSheet": {
 	  "isAutoPopulate": {
 		"paymentTypeOption": true
+	  },
+	  "isHiddenFeild":{
+		"newtransactionDate":false
 	  }
 	},
 	"createClient":{
